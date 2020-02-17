@@ -10,13 +10,14 @@ const styles = {
     width: width - 40,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#D8D8D8",
     padding: 10,
     marginTop: 5,
     marginBottom: 5
   },
   image: {
-    width: width - 100
+    width: width - 100,
+    size: 20
   },
   text: {
     fontSize: 20,
@@ -24,13 +25,13 @@ const styles = {
   }
 };
 
-const Card = ({ image, text, isFavourite, action }: PruCardProps): JSX.Element => {
-  const icon = isFavourite ? "heart" : "heart-o";
+const Card = ({ image, text, inCart, action }: PruCardProps): JSX.Element => {
+  const icon = inCart ? "check-circle" : "circle";
   return (
     <View style={styles.container}>
+      <ImageButton icon={icon} color={"#2c9f45"} onPress={action} />
       <Image source={image} resizeMode={"contain"} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
-      <ImageButton icon={icon} color={"#333"} onPress={action} />
     </View>
   );
 };
@@ -38,13 +39,13 @@ const Card = ({ image, text, isFavourite, action }: PruCardProps): JSX.Element =
 export interface PruCardProps {
   action: any;
   image: number;
-  isFavourite: boolean;
+  inCart: boolean;
   text: string;
 }
 Card.propTypes = {
   action: PropTypes.func.isRequired,
   image: PropTypes.number.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
+  inCart: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 };
 

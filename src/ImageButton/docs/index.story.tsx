@@ -3,13 +3,19 @@ import { View } from "react-native";
 import { storiesOf } from "@storybook/react-native";
 import ImageButton from "../ImageButton";
 
-storiesOf("ImageButton", module)
+storiesOf("ImageButtons", module)
   .addDecorator((getStory: () => React.ReactNode) => (
     <View style={{ flex: 1, alignItems: "center" }}>{getStory()}</View>
   ))
-  .add("on", () => (
-    <ImageButton icon={"heart"} color={"#333"} onPress={() => console.log("clicked!")} />
+  .add("In Cart", () => (
+    <ImageButton icon={"check-circle"} color={"#2c9f45"} onPress={() => console.log("clicked!")} />
   ))
-  .add("off", () => (
-    <ImageButton icon={"heart-o"} color={"#333"} onPress={() => console.log("clicked!")} />
+  .add("Not in Cart", () => (
+    <ImageButton icon={"circle"} color={"#2c9f45"} onPress={() => console.log("clicked!")} />
+  ))
+  .add("Plus", () => (
+    <ImageButton icon={"plus"} color={"#e50023"} onPress={() => console.log("clicked!")} />
+  ))
+  .add("Minus", () => (
+    <ImageButton icon={"minus"} color={"#e50023"} onPress={() => console.log("clicked!")} />
   ));

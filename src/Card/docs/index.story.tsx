@@ -8,25 +8,23 @@ storiesOf("Card", module)
   .addDecorator((getStory: () => React.ReactNode) => (
     <View style={{ flex: 1, alignItems: "center" }}>{getStory()}</View>
   ))
-  .add("default", () => (
+  .add("Item", () => (
     <Card
-      image={require("../../images/charizard.jpg")}
-      text={"Charizard"}
-      isFavorite={false}
+      image={require("../../images/pills.jpeg")}
+      text={"Nurofen"}
+      inCart={false}
       action={() => {
         console.log("clicked!");
       }}
-      isFavourite={false}
     />
   ))
-  .add("favourites", () => (
+  .add("Item in Cart", () => (
     <Card
-      image={require("../../images/lugia.jpg")}
-      text={"Lugia"}
-      isFavorite={true}
+      image={require("../../images/pills.jpeg")}
+      text={"Panadol"}
+      inCart={true}
       action={() => {
         console.log("clicked!");
       }}
-      isFavourite={true}
     />
   ));
