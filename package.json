@@ -1,0 +1,84 @@
+{
+  "name": "elements",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest",
+    "prettier": "prettier --write 'src/**/*.{ts*,json,md,yml,js}' 'storybook/**/*.{ts*,json,md,yml,js}' && yarn lint",
+    "storybook": "(adb reverse tcp:7007 tcp:7007 || true) && start-storybook -p 7007 ",
+    "lint": "eslint 'src/**/*.{ts*,json,md,yml,js}' 'storybook/**/*.{ts*,json,md,yml,js}' && yarn lint-md",
+    "lint-md": "remark .",
+    "run-android": "./scripts/prepare-simulator.sh android pru-dev && react-native run-android",
+    "run-ios": "./scripts/prepare-simulator.sh ios pru-dev && react-native run-ios --simulator 'pru-dev'"
+  },
+  "dependencies": {
+    "babel-preset-react-app": "^9.1.1",
+    "prop-types": "^15.7.2",
+    "react": "16.8.6",
+    "react-dom": "^16.12.0",
+    "react-native": "^0.61.5",
+    "react-native-elements": "^1.2.7",
+    "react-native-vector-icons": "^6.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/runtime": "^7.5.0",
+    "@react-native-community/eslint-config": "^0.0.3",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/preset-typescript": "^1.2.0",
+    "@storybook/react-native": "^5.3.13",
+    "@storybook/react-native-server": "^5.3.13",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^25.1.2",
+    "@types/react": "^16.9.19",
+    "@types/react-native": "^0.61.12",
+    "@types/react-native-vector-icons": "^6.4.5",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/storybook__react": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "fork-ts-checker-webpack-plugin": "^4.0.3",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "0.54.1",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-native-typescript-transformer": "^1.2.13",
+    "react-test-renderer": "16.8.6",
+    "remark": "^11.0.2",
+    "remark-cli": "^7.0.1",
+    "remark-lint-no-literal-urls": "^1.0.3",
+    "remark-preset-lint-recommended": "^3.0.3",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
+  }
+}
